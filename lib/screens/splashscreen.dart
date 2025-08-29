@@ -33,10 +33,7 @@ class _SplashScreenState extends State<SplashScreen>
       duration: const Duration(seconds: 3),
     );
 
-    _animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    );
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
 
     _controller.forward();
 
@@ -70,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.black,
+      backgroundColor: Colors.black,
       body: Center(
         child: Stack(
           alignment: Alignment.center,
@@ -84,26 +81,10 @@ class _SplashScreenState extends State<SplashScreen>
                 );
               },
             ),
+
             // Only show text after animation completes
-            if (_showText)
-              Positioned(
-                bottom: 1, // adjust the position as needed
-                child: AnimatedOpacity(
-                  opacity: _showText ? 1 : 0,
-                  duration: const Duration(seconds:1),
-
-                  child: GradientText(
-                    text: "ZapTask",
-                    fontSize: 32,
-                  )
-
-
-                ),
-              ),
-
           ],
         ),
-
       ),
     );
   }
@@ -129,8 +110,10 @@ class CurvedZPainter extends CustomPainter {
 
     // Top curve
     path.quadraticBezierTo(
-      size.width * 0.5, size.height * -0.1,
-      size.width, size.height * 0.1,
+      size.width * 0.5,
+      size.height * -0.1,
+      size.width,
+      size.height * 0.1,
     );
 
     // Middle diagonal
@@ -138,8 +121,10 @@ class CurvedZPainter extends CustomPainter {
 
     // Bottom curve
     path.quadraticBezierTo(
-      size.width * 0.5, size.height * 0.9,
-      size.width, size.height * 0.6,
+      size.width * 0.5,
+      size.height * 0.9,
+      size.width,
+      size.height * 0.6,
     );
 
     // Animate path
