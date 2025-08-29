@@ -82,7 +82,6 @@ class _SplashScreenState extends State<SplashScreen>
               },
             ),
 
-            // Only show text after animation completes
           ],
         ),
       ),
